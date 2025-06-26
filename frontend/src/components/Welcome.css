@@ -1,0 +1,359 @@
+/* === Global Layout === */
+/* Welcome.css */
+
+/* Navbar button styling */
+.nav-btn,
+.nav-link-btn {
+  background: linear-gradient(135deg, #4a90e2, #357ABD);
+  color: white;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(53, 122, 189, 0.6);
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0.03em;
+  user-select: none;
+}
+
+/* Hover effect */
+.nav-btn:hover,
+.nav-link-btn:hover {
+  background: linear-gradient(135deg, #357ABD, #4a90e2);
+  box-shadow: 0 5px 15px rgba(53, 122, 189, 0.8);
+  transform: translateY(-2px);
+}
+
+/* Active/focus states for accessibility */
+.nav-btn:focus,
+.nav-link-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.6);
+}
+
+/* Disabled state */
+.nav-btn:disabled,
+.nav-link-btn:disabled {
+  background: #999;
+  box-shadow: none;
+  cursor: not-allowed;
+  color: #ddd;
+  transform: none;
+}
+
+/* For the Profile and Dashboard nav items styled as buttons */
+.nav-links li {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav-links li button,
+.nav-links li span.nav-link-btn {
+  /* To ensure clickable areas look consistent */
+  padding: 6px 12px;
+}
+
+/* Optional: if Profile and Dashboard are spans or buttons */
+.nav-links li span.nav-link-btn {
+  color: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-links li span.nav-link-btn:hover {
+  background: linear-gradient(135deg, #357ABD, #4a90e2);
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(53, 122, 189, 0.8);
+  transform: translateY(-2px);
+}
+
+/* Dark and Light theme adjustments */
+.dark-theme .nav-btn,
+.dark-theme .nav-link-btn {
+  background: linear-gradient(135deg, #6a8cbf, #43669d);
+  box-shadow: 0 3px 10px rgba(67, 102, 157, 0.6);
+  color: #f0f0f0;
+}
+
+.dark-theme .nav-btn:hover,
+.dark-theme .nav-link-btn:hover {
+  background: linear-gradient(135deg, #43669d, #6a8cbf);
+  box-shadow: 0 5px 15px rgba(67, 102, 157, 0.8);
+}
+
+.light-theme .nav-btn,
+.light-theme .nav-link-btn {
+  background: linear-gradient(135deg, #6bc4ff, #3291ff);
+  box-shadow: 0 3px 10px rgba(50, 145, 255, 0.6);
+  color: #fff;
+}
+
+.light-theme .nav-btn:hover,
+.light-theme .nav-link-btn:hover {
+  background: linear-gradient(135deg, #3291ff, #6bc4ff);
+  box-shadow: 0 5px 15px rgba(50, 145, 255, 0.8);
+}
+
+/* Optional: spacing in nav */
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure html and body occupy full height */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+/* Ensure root app div takes full height */
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* Apply full height to the theme wrapper */
+.light-theme, .dark-theme {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dashboard base styles */
+.dashboard {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow: hidden;  /* Hide scrollbars */
+}
+
+/* === Themes === */
+.light-theme {
+  background-color: #f9fafb;
+  color: #1c1c1c;
+}
+
+.dark-theme {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+/* === Navbar === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.light-theme .navbar {
+  background-color: #d0f0f5; /* Icy teal background */
+  color: #1c1c1c;
+}
+
+.dark-theme .navbar {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Dark theme hover (kept as before) */
+.dark-theme .logo:hover {
+  color: #0ac6c6;
+  transform: scale(1.1);
+  text-shadow: 0 0 8px #0ac6c6;
+}
+
+/* Light theme hover */
+.light-theme .logo:hover {
+  color: #117a8b; /* A darker teal to contrast icy background */
+  transform: scale(1.05); /* Slightly smaller scale effect */
+  text-shadow: 0 0 6px #117a8b88; /* Transparent teal glow */
+}
+
+
+
+.nav-links li {
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links li:hover {
+  color: #007bff;
+}
+
+/* === Main Content === */
+.main-content {
+  flex-grow: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: inherit;
+}
+
+/* === News Container === */
+.news-container {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.news-card {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+}
+
+.news-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.news-card .source {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.dark-theme .news-card {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.04);
+}
+
+.dark-theme .news-card .source {
+  color: #aaa;
+}
+
+.loading-text {
+  font-style: italic;
+}
+
+/* === Refresh Button === */
+.refresh-btn {
+  background: linear-gradient(135deg, #0ac6c6, #007bff);
+  color: white;
+  padding: 0.85rem 1.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(10, 198, 198, 0.5);
+  cursor: pointer;
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.2s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.refresh-btn:hover {
+  background: linear-gradient(135deg, #007bff, #0ac6c6);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.7);
+  transform: scale(1.05);
+}
+
+.refresh-btn:disabled {
+  background: #999;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+  color: #eee;
+}
+
+.simple-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1e1e1e; /* dark navbar bg */
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Logo on left */
+.simple-navbar .logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* Page title center */
+.simple-navbar .page-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Back button on right */
+.back-btn {
+  background: transparent;
+  border: 2px solid #0ac6c6;
+  color: #0ac6c6;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #0ac6c6;
+  color: #121212;
+}
+
+/* Optional: support light theme if you want */
+.light-theme .simple-navbar {
+  background-color: #d0f0f5;
+  color: #1c1c1c;
+}
+
+.light-theme .back-btn {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.light-theme .back-btn:hover {
+  background-color: #007bff;
+  color: white;
+}

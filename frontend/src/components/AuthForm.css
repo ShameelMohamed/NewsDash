@@ -1,0 +1,282 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+  background: linear-gradient(135deg, #0f1c1c, #1b2e2e);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* full viewport height */
+  text-align: center;
+}
+
+/* Main container */
+.container.fixed-container {
+  width: 900px;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  transition: flex-direction 0.5s ease;
+}
+
+/* Reversed layout (login/signup switch) */
+.container.reversed {
+  flex-direction: row-reverse;
+}
+
+/* Divider line - subtle frosted glass effect without glow */
+.container.fixed-container::before {
+  content: "";
+  position: absolute;
+  top: 5%;
+  bottom: 5%;
+  left: 50%;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  transform: translateX(-50%);
+  z-index: 2;
+  border-radius: 1px;
+}
+
+/* Shared glass card styles */
+.glass-card {
+  flex: 1;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  user-select: text;
+  color: #fff;
+  border-radius: 20px;
+}
+
+/* Left and right card border radius adjustments */
+.left-card {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.right-card {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* When container reversed, swap border radius sides */
+.container.reversed .left-card {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.container.reversed .right-card {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+/* Content wrapper inside glass cards (this is what we animate) */
+.content-wrapper {
+  width: 100%;
+}
+
+/* Center content inside cards */
+.content-center {
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+}
+
+/* Typography */
+h1 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 2rem; /* increase size here */
+}
+/* --- INCREASED FONT SIZES HERE --- */
+
+/* Welcome! and Create Account headings */
+.left-card h1,
+.right-card h1 {
+  font-size: 2.8rem; /* bigger heading */
+  margin-bottom: 15px;
+}
+
+/* Subtext under headings */
+.left-card .welcome-subtext,
+.right-card .welcome-subtext {
+  color: #ccc;
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+}
+
+/* Toggle container text */
+.toggle-container-inline {
+  margin-top: 25px;
+  color: #ddd;
+  font-size: 1.4rem;
+}
+
+/* Toggle clickable links */
+.toggle-link {
+  color: #0ac6c6;
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: 6px;
+  font-size: 1.4rem;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+/* Form Inputs */
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+input:focus {
+  border-color: #0ac6c6;
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+
+/* Buttons */
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #0ac6c6;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #00b1b1;
+}
+
+/* Full card (after auth) */
+.full-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Animation Keyframes */
+
+/* Fade out moving towards center line */
+/* Left card moves right */
+/* Fade out towards center animations */
+@keyframes fadeOutToCenterLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+@keyframes fadeOutToCenterRight {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+/* Fade in away from center animations */
+@keyframes fadeInFromCenterLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInFromCenterRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Classes for animation */
+.fade-out-to-center-left {
+  animation: fadeOutToCenterLeft 0.5s forwards;
+}
+
+.fade-out-to-center-right {
+  animation: fadeOutToCenterRight 0.5s forwards;
+}
+
+.fade-in-from-center-left {
+  animation: fadeInFromCenterLeft 0.5s forwards;
+}
+
+.fade-in-from-center-right {
+  animation: fadeInFromCenterRight 0.5s forwards;
+}

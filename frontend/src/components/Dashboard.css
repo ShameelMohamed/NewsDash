@@ -1,0 +1,78 @@
+/* Base dashboard layout */
+.dashboard {
+  min-height: 100vh;
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar styling */
+.simple-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1e1e1e;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Navbar elements */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.page-title {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.nav-btn {
+  background-color: #6a5acd;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+  background-color: #5949b5;
+}
+
+/* Main content */
+.dashboard-content {
+  padding: 2rem;
+}
+
+/* Chart container styling */
+.chart-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.chart-box {
+  flex: 1 1 45%;
+  min-width: 300px;
+  height: 350px;
+  background-color: #1e1e2f;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.chart-box h3 {
+  margin-bottom: 1rem;
+  color: #cccccc !important; /* ✅ Force grey but visible on hover */
+  font-weight: 500;
+  transition: color 0.3s;
+  pointer-events: none; /* ✅ Prevent hover interference from tooltip */
+}
