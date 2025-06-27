@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:8000/api";
+const API_BASE = "https://newsdashbackennd.onrender.com/api";
 
 export async function loginUser(credentials) {
   const res = await fetch(`${API_BASE}/login/`, {

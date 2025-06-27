@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./AuthForm.css";
 
-const BASE_URL = "http://localhost:8000/api";
+const BASE_URL = "https://newsdashbackennd.onrender.com/api";
 
 export default function AuthForm({ onLogin }) {
   const [isLogin, setIsLogin] = useState(true);
