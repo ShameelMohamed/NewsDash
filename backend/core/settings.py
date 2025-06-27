@@ -6,11 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "your-secret-key"
 DEBUG = True
-<<<<<<< HEAD
-ALLOWED_HOSTS = []
-=======
 ALLOWED_HOSTS = ['*']
->>>>>>> 970dc38 (Prepare backend for Render deployment (ALLOWED_HOSTS, STATIC_ROOT, requirements, Procfile))
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -74,10 +70,7 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 STATIC_URL = "/static/"
-<<<<<<< HEAD
-=======
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
->>>>>>> 970dc38 (Prepare backend for Render deployment (ALLOWED_HOSTS, STATIC_ROOT, requirements, Procfile))
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # DRF + JWT auth
