@@ -1,4 +1,5 @@
 gunicorn
 django-cors-headers
 djangorestframework
-djangorestframework-simplejwt 
+djangorestframework-simplejwt
+requests 
