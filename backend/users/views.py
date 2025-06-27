@@ -2,11 +2,12 @@ from rest_framework import generics, permissions
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+import requests
 
 from .serializers import SignupSerializer, UserSerializer
 from django.contrib.auth.models import User
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth import update_session_auth_hash
@@ -77,3 +78,15 @@ class UsersListView(generics.ListAPIView):
 @login_required
 def dashboard(request):
     return render(request, "dashboard.html")
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def proxy_news(request):
+    url = "https://api.currentsapi.services/v1/latest-news"
+    params = {
+        "apiKey": "URBeuUT1YANLLlgDMEFja_erkmtiQm7gqC6mxmH1Sa6UC3kv",
+        "language": "en",
+        "country": "US"
+    }
+    r = requests.get(url, params=params)
+    return Response(r.json())

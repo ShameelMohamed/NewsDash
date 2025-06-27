@@ -16,7 +16,7 @@ export default function Welcome({ logout }) {
   const fetchNews = async () => {
     setLoading(true);
     try {
-      const url = `https://api.currentsapi.services/v1/latest-news?apiKey=${CURRENTS_API_KEY}&language=en&country=US`;
+      const url = "https://newsdashbackennd.onrender.com/api/news/";
       const response = await fetch(url);
       const data = await response.json();
 

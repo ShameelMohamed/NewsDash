@@ -1,4 +1,4 @@
-from .views import SignupView, UsersListView, dashboard, profile_view, change_password_view
+from .views import SignupView, UsersListView, dashboard, profile_view, change_password_view, proxy_news
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from django.urls import path
 urlpatterns = [
@@ -10,4 +10,5 @@ urlpatterns = [
 
     path("profile/", profile_view, name="profile"),
     path("change-password/", change_password_view, name="change_password"),
+    path("news/", proxy_news, name="proxy_news"),
 ]
