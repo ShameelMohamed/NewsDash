@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { fetchProfile } from "../api";  // Make sure your API helper exists
 import "./Welcome.css";
 
-const NEWS_API_KEY = "e402b33aacea47daaf31f84dfebcb0c5";
+const CURRENTS_API_KEY = "URBeuUT1YANLLlgDMEFja_erkmtiQm7gqC6mxmH1Sa6UC3kv";
 
 export default function Welcome({ logout }) {
   const [username, setUsername] = useState(null);
@@ -16,17 +16,16 @@ export default function Welcome({ logout }) {
   const fetchNews = async () => {
     setLoading(true);
     try {
-      const randomPage = Math.floor(Math.random() * 5) + 1;
-      const url = `https://newsapi.org/v2/top-headlines?country=us&pageSize=10&page=${randomPage}&language=en&apiKey=${NEWS_API_KEY}`;
-
+      const url = `https://api.currentsapi.services/v1/latest-news?apiKey=${CURRENTS_API_KEY}&language=en&country=US`;
       const response = await fetch(url);
       const data = await response.json();
 
-      if (data.status === "ok" && data.articles.length > 0) {
-        const shuffled = data.articles.sort(() => 0.5 - Math.random()).slice(0, 3);
+      if (data.news && data.news.length > 0) {
+        const shuffled = data.news.sort(() => 0.5 - Math.random()).slice(0, 3);
         const headlines = shuffled.map((article, index) => (
           <div key={index} className="news-card">
             <h3>{article.title}</h3>
+            <div className="source">{article.author || article.source || "Unknown Source"}</div>
           </div>
         ));
         setNews(headlines);
