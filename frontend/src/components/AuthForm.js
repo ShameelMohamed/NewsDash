@@ -124,7 +124,7 @@ export default function AuthForm({ onLogin }) {
   };
 
   const textSection = isLogin
-    ? { title: "Welcome!", subtitle: "Login with your credentials" }
+    ? { title: "Welcome to NewsDash!", subtitle: "Login with your credentials" }
     : { title: "Create Account", subtitle: "Enter details to sign up" };
 
   const formSection = (
