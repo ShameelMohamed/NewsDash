@@ -1,2 +1,4 @@
 gunicorn
-django-cors-headers 
+django-cors-headers
+djangorestframework
+djangorestframework-simplejwt 
